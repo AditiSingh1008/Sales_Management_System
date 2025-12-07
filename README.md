@@ -7,7 +7,13 @@
 
 A modern, high-performance Retail Sales Management System with advanced search, filtering, sorting, and pagination capabilities. Built for TruEstate SDE Intern Assignment.
 
-![Sales Dashboard](https://sales-management-system-nine-ruby.vercel.app/)
+## 🌐 Live Demo
+
+**🎯 [View Live Application](https://sales-management-system-nine-ruby.vercel.app/)**
+
+Experience the full functionality of the Sales Management System with real-time search, advanced filtering, dynamic sorting, and smooth pagination.
+
+---
 
 ## ✨ Features
 
@@ -386,8 +392,7 @@ MIT License - see [LICENSE](LICENSE) file
 ## 👨‍💻 Author
 
 **Your Name**
-- GitHub: [@AditiSingh](https://github.com/AditiSingh1008)
-
+- GitHub: [@AditiSingh1008](https://github.com/AditiSingh1008)
 
 ## 🙏 Acknowledgments
 
@@ -400,7 +405,6 @@ MIT License - see [LICENSE](LICENSE) file
 
 For issues or questions:
 - Open an issue on GitHub
-
 
 ---
 
