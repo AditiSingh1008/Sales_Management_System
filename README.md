@@ -7,7 +7,7 @@
 
 A modern, high-performance Retail Sales Management System with advanced search, filtering, sorting, and pagination capabilities. Built for TruEstate SDE Intern Assignment.
 
-![Sales Dashboard](https://via.placeholder.com/1200x600/4F46E5/FFFFFF?text=Sales+Management+Dashboard)
+![Sales Dashboard](https://sales-management-system-nine-ruby.vercel.app/)
 
 ## ✨ Features
 
