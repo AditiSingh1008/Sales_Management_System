@@ -1,3 +1,4 @@
+// index.js - Sales Backend Server
 const express = require('express');
 const cors = require('cors');
 const fs = require('fs');
@@ -12,11 +13,12 @@ app.use(cors());
 app.use(express.json());
 
 let salesData = [];
-const MAX_ROWS = 90000; // Limit to 20K rows for performance
+const MAX_ROWS = 90000; // Limit to 90K rows for performance
+const MOCK_DATA_SIZE = 5000; // Generate 5K mock records as fallback
 
 // Generate mock data if CSV is not available
 const generateMockData = () => {
-  console.log('📝 Generating mock data...');
+  console.log(`📝 Generating ${MOCK_DATA_SIZE.toLocaleString()} mock records...`);
   const regions = ['North', 'South', 'East', 'West', 'Central'];
   const genders = ['Male', 'Female', 'Other'];
   const categories = ['Clothing', 'Electronics', 'Food', 'Books', 'Sports'];
@@ -24,7 +26,7 @@ const generateMockData = () => {
   const paymentMethods = ['Credit Card', 'Debit Card', 'Cash', 'UPI', 'Net Banking'];
   const names = ['Neha Yadav', 'Rahul Kumar', 'Priya Singh', 'Amit Sharma', 'Anjali Verma', 'Vikram Patel', 'Sneha Gupta', 'Rohan Mehta', 'Divya Reddy', 'Arjun Nair', 'Sanya Kapoor', 'Karan Malhotra'];
   
-  return Array.from({ length: 150 }, (_, i) => ({
+  const mockData = Array.from({ length: MOCK_DATA_SIZE }, (_, i) => ({
     transactionId: `TXN${String(i + 1).padStart(6, '0')}`,
     date: new Date(2023, Math.floor(Math.random() * 12), Math.floor(Math.random() * 28) + 1).toISOString().split('T')[0],
     customerId: `CUST${String(Math.floor(Math.random() * 10000)).padStart(5, '0')}`,
@@ -39,6 +41,9 @@ const generateMockData = () => {
     totalAmount: Math.floor(Math.random() * 5000) + 500,
     paymentMethod: paymentMethods[Math.floor(Math.random() * paymentMethods.length)],
   }));
+  
+  console.log(`✅ Generated ${mockData.length.toLocaleString()} mock records`);
+  return mockData;
 };
 
 // Load CSV data with memory limit
@@ -107,7 +112,7 @@ loadData().then(data => {
 }).catch(err => {
   console.error('Failed to load data:', err);
   salesData = generateMockData();
-  console.log(`✅ Using mock data with ${salesData.length} records`);
+  console.log(`✅ Using mock data with ${salesData.length.toLocaleString()} records`);
 });
 
 // Helper function to get field value
